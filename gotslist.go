@@ -35,29 +35,43 @@ func (this *GoTSList) Remove(elem *list.Element) {
 func (this *GoTSList) Pop() (interface{}, bool) {
 	this.Lock()
 	defer this.Unlock()
-	
+
 	if this.list.Len() == 0 {
 		return nil, false
 	}
-	
+
 	element := this.list.Back()
 	this.list.Remove(element)
-	
+
 	return element.Value, true
 }
 
 func (this *GoTSList) Len() int {
 	this.Lock()
 	defer this.Unlock()
-	
+
 	return this.list.Len()
 }
 
 func (this *GoTSList) IsEmpty() bool {
 	this.Lock()
 	defer this.Unlock()
-	
+
 	return (this.list.Len() == 0)
+}
+
+func (this *GoTSList) Front() *list.Element {
+	this.Lock()
+	defer this.Unlock()
+
+	return this.list.Front()
+}
+
+func (this *GoTSList) Back() *list.Element {
+	this.Lock()
+	defer this.Unlock()
+
+	return this.list.Back()
 }
 
 func (this *GoTSList) Lock() {
