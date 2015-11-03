@@ -24,7 +24,7 @@ func TestConcurrency(t *testing.T) {
 	for i := 0; i < total; i++ {
 		go func(wg *sync.WaitGroup) {
 			defer wg.Done()
-			tslist.Push("New element")
+			tslist.PushBack("New element")
 		}(&wg)
 	}
 
@@ -41,7 +41,7 @@ func TestConcurrencyAddCount(t *testing.T) {
 	for i := 0; i < total; i++ {
 		go func(wg *sync.WaitGroup) {
 			defer wg.Done()
-			tslist.Push("New element")
+			tslist.PushBack("New element")
 		}(&wg)
 	}
 
@@ -62,7 +62,7 @@ func TestConcurrencyAddRemove(t *testing.T) {
 	for i := 0; i < totalAdd; i++ {
 		go func(wg *sync.WaitGroup) {
 			defer wg.Done()
-			tslist.Push(element)
+			tslist.PushBack(element)
 		}(&wgAdd)
 	}
 
@@ -93,7 +93,7 @@ func TestConcurrencyAddPop(t *testing.T) {
 	for i := 0; i < totalAdd; i++ {
 		go func(wg *sync.WaitGroup) {
 			defer wg.Done()
-			tslist.Push("New element")
+			tslist.PushBack("New element")
 		}(&wgAdd)
 	}
 
@@ -118,7 +118,7 @@ func TestConcurrencyLen(t *testing.T) {
 	for i := 0; i < total; i++ {
 		go func(wg *sync.WaitGroup) {
 			defer wg.Done()
-			tslist.Push("New element")
+			tslist.PushBack("New element")
 			_ = tslist.Len()
 		}(&wg)
 	}
@@ -140,7 +140,7 @@ func TestConcurrencyIsEmpty(t *testing.T) {
 	for i := 0; i < total; i++ {
 		go func(wg *sync.WaitGroup) {
 			defer wg.Done()
-			tslist.Push("New element")
+			tslist.PushBack("New element")
 			_ = tslist.IsEmpty()
 		}(&wg)
 	}
@@ -157,7 +157,7 @@ func ExampleHowToUse() {
 	tslist := NewGoTSList()
 
 	// add
-	tslist.Push("New element")
+	tslist.PushBack("New element")
 
 	// remove
 	for e := tslist.Front(); e != nil; e = e.Next() {
