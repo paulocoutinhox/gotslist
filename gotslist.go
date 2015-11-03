@@ -14,7 +14,7 @@ func NewGoTSList() *GoTSList {
 	return &GoTSList{list.New(), sync.Mutex{}}
 }
 
-func (this *GoTSList) Push(elem interface{}) {
+func (this *GoTSList) PushBack(elem interface{}) {
 	this.Lock()
 	defer this.Unlock()
 
