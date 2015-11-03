@@ -51,7 +51,11 @@ Obs: There is a test method to use all methods
 
 ```bash
 make test
+```
+
 or
+
+```bash
 go test -v
 ```
 
