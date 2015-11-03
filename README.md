@@ -45,4 +45,14 @@ func ExampleHowToUse() {
 }
 ```
 
-There is a test method to use all methods
+Obs: There is a test method to use all methods
+
+# Test
+
+```bash
+make test
+or
+go test -v
+```
+
+Thanks.
