@@ -2,6 +2,10 @@
 
 Golang list with thread safe implementation
 
+# CI
+
+[![Build Status](https://travis-ci.org/prsolucoes/gotslist.svg?branch=master)](https://travis-ci.org/prsolucoes/gotslist)
+
 # Installing
 
 ```bash
