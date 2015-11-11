@@ -155,13 +155,24 @@ func TestConcurrencyIsEmpty(t *testing.T) {
 func ExampleHowToUse() {
 	// new
 	tslist := NewGoTSList()
+	wg := sync.WaitGroup{}
 
 	// add
-	tslist.PushBack("New element")
+	total := 100000
+	wg.Add(total)
+
+	for i := 0; i < total; i++ {
+		go func(wg *sync.WaitGroup) {
+			defer wg.Done()
+			tslist.PushBack("New element")
+		}(&wg)
+	}
+
+	wg.Wait()
 
 	// remove
 	for e := tslist.Front(); e != nil; e = e.Next() {
-		tslist.Remove(e)
+		go tslist.Remove(e)
 	}
 
 	// len
