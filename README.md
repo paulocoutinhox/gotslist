@@ -1,3 +1,6 @@
+# Support with donation
+[![Support with donation](http://donation.pcoutinho.com/images/donate-button.png)](http://donation.pcoutinho.com/)
+
 # gotslist
 
 Golang list with thread safe implementation
